@@ -7,7 +7,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 
-public class Coverter
+public class Converter
 {
     @TypeConverter
     public static Vehicle fromString(String value)
