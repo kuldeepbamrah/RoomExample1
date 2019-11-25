@@ -6,7 +6,10 @@ import android.icu.lang.UScript;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-@Database(entities = UserDetails.class , exportSchema = false , version = 1)
+import androidx.room.TypeConverters;
+
+@Database(entities = Employee.class , exportSchema = false , version = 2)
+@TypeConverters({Coverter.class})
 public abstract class UserDatabase extends RoomDatabase
 {
 
@@ -19,7 +22,7 @@ public abstract class UserDatabase extends RoomDatabase
     {
         if(uInstance == null)
         {
-            uInstance = Room.databaseBuilder(context.getApplicationContext(),UserDatabase.class,UserDatabase.DB_NAME).allowMainThreadQueries().build();
+            uInstance = Room.databaseBuilder(context.getApplicationContext(),UserDatabase.class,UserDatabase.DB_NAME).allowMainThreadQueries().fallbackToDestructiveMigration().build();
         }
         return uInstance;
     }

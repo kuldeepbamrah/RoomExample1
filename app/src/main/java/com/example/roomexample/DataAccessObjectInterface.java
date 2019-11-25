@@ -6,20 +6,21 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import java.util.EnumMap;
 import java.util.List;
 
 @Dao
 public interface DataAccessObjectInterface
 {
     @Insert
-   void insert(UserDetails userDetails);
+   void insert(Employee employee);
 
    @Delete
-    void delete(UserDetails userDetails);
+    void delete(Employee employee);
 
    @Update
-    void update(UserDetails userDetails);
+    void update(Employee employee);
 
-   @Query("Select * from userdetails")
-    List<UserDetails> getUserDetails();
+   @Query("Select * from employee")
+    List<Employee> getUserDetails();
 }
